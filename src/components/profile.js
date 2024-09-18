@@ -37,7 +37,7 @@ const profile = () => {
     </button>
     )}
 
-    {isProposed && count < 3 && (
+    {isProposed && count < 4 && (
       <div style={styles.response}>
         <h2>💍 You are my everything! 💍</h2>
         <p style={styles.responseMessage}>
