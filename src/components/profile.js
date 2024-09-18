@@ -17,12 +17,6 @@ const profile = () => {
       setCount(count+1);
     }
 
-    useEffect(() => {
-    
-      if (count > 3) {
-          
-      }
-  }, [count]);
 
   return (
        <div style={styles.container}>
