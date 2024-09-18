@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useEffect, useState } from 'react'
 
 const profile = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -6,10 +7,23 @@ const profile = () => {
     const handleProposal = ()=>{
         
           console.log("true");
-            setProposal(true);  
+            setProposal(true);
+    
             
     }
+    const [count,setCount] = useState(0);
+    const handleProposalRejected = ()=>{
+      console.log("count");
+      setCount(count+1);
+    }
+
+    useEffect(() => {
     
+      if (count > 3) {
+          
+      }
+  }, [count]);
+
   return (
        <div style={styles.container}>
     <h1 style={styles.title}>💖 My Dear Special Proposal 💖</h1>
@@ -17,10 +31,19 @@ const profile = () => {
       I’ve enjoyed every moment we’ve spent together, and I can’t imagine my life without you.
       Will you make me the happiest person by being my partner for life?
     </p>
+    <h2 style={styles.message}>Will You be My Life Patner?</h2>
+    {(isProposed===false && count <4)&&(
     <button onClick={handleProposal} style={styles.button}>
-      Propose
+      Yes💕
     </button>
-    {isProposed && (
+    )}
+    {(count < 4 && isProposed===false) && (
+    <button onClick={handleProposalRejected} style={styles.button}>
+      No 👊
+    </button>
+    )}
+
+    {isProposed && count < 3 && (
       <div style={styles.response}>
         <h2>💍 You are my everything! 💍</h2>
         <p style={styles.responseMessage}>
@@ -28,10 +51,36 @@ const profile = () => {
         </p>
       </div>
     )}
-    </div>
-  )
+
+    {(count===1 && isProposed===false)&&(
+       <div style={styles.response}>
+       <p>Please Baby🥺</p>
+     </div>
+    )}
+{(count === 2&& isProposed===false)&&(
+        <div style={styles.response}>
+            <p>Please Please Baby🐣</p>
+        </div>
+      )}
+    {(count === 3&& isProposed===false)&&(
+        <div style={styles.response}>
+            <p>Ek Lafot Padsene Sani Mani Yes Per Click Ker</p>
+        </div>
+      )}
+
+      {count > 3 && (
+        <div style={styles.response}>
+          <h1>Thank You For Accepting Me😊.</h1>
+          <div style={styles.responseMessage}>
+            <p>I Will Make You Happiest Person in My Life❤️.  </p>
+          </div>
+        </div>
+      )}
+
+  </div>)
 };
-  const styles = {
+
+ const styles = {
     container: {
       display: 'flex',
       flexDirection: 'column',
