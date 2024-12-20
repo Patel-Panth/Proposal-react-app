@@ -10,7 +10,7 @@ const LoginApp = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const auth = getAuth();
-
+  console.log(process.env.APIKEY);
   const handleSignup = async () => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
