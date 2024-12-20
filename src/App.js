@@ -1,5 +1,5 @@
 
-  import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginApp from '../src/components/loginpage.js'; // Adjust the import based on your folder structure
 import Profile from '../src/components/profile.js'; // Adjust the import based on your folder structure
@@ -31,4 +31,3 @@ const App = () => {
 
 
 export default App;
-
